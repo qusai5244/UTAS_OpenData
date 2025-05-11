@@ -72,25 +72,6 @@ st.dataframe(summary_df)
 csv = summary_df.to_csv(index=False).encode("utf-8")
 st.download_button("Download Summary as CSV", csv, "summary.csv", "text/csv")
 
-# Insights Section
-st.markdown("---")
-st.markdown(
-    """
-    <h2 style="font-size: 24px;">Insights:</h2>
-    <ol style="font-size: 18px;">
-        <li><strong>Point 1:</strong> From the table, it is clear that there are some specializations which are only available in the <strong>Muscat branch</strong>, including:</li>
-        <ul style="font-size: 18px; margin-left: 20px;">
-            <li>Applied Science</li>
-            <li>Fashion Design</li>
-            <li>Pharmacy</li>
-            <li>Photography</li>
-        </ul>
-        <li><strong>Point 2:</strong> The Total Number of graduates from 19/20 to 20/21 has increased, but it has decreased sharply after that.</li>
-    </ol>
-    """,
-    unsafe_allow_html=True
-)
-
 # Charts Section
 st.markdown("---")
 st.subheader("📊 Visualizations")
@@ -129,3 +110,22 @@ with st.container():
     branch_counts.columns = ["Branch", "Count"]
     fig_pie = px.pie(branch_counts, names="Branch", values="Count", title="Branch Distribution")
     st.plotly_chart(fig_pie)
+
+# Insights Section
+st.markdown("---")
+st.markdown(
+    """
+    <h2 style="font-size: 24px;">Insights:</h2>
+    <ol style="font-size: 18px;">
+        <li><strong>Point 1:</strong> From the table, it is clear that there are some specializations which are only available in the <strong>Muscat branch</strong>, including:</li>
+        <ul style="font-size: 18px; margin-left: 20px;">
+            <li>Applied Science</li>
+            <li>Fashion Design</li>
+            <li>Pharmacy</li>
+            <li>Photography</li>
+        </ul>
+        <li><strong>Point 2:</strong> The Total Number of graduates from 19/20 to 20/21 has increased, but it has decreased sharply after that.</li>
+    </ol>
+    """,
+    unsafe_allow_html=True
+)
